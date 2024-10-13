@@ -1,61 +1,66 @@
 fun main() {
-//    Армия Республики
-    val name = readln()
+//    Острова Никкини Ботом пользуются популярностью у туристов,
+//    поскольку здесь представлен отдых на любой кошелёк
+    println("Введите ваши предпочтения:")
+    val interests = readln()
 
-    var soldiers = 0
-    var structure = ""
-    var head = ""
+    when (interests) {
+        "Природа" -> println("Рекомендуем экскурсию в национальный парк.")
+        "История" -> println("Рекомендуем посетить местный исторический музей.")
+        "Развлечения" -> println("Рекомендуем сходить в аквапарк или парк аттракционов.")
+    }
 
-    val squadSoldiers = 9
-    val platoonSoldiers = squadSoldiers * 4
-    val coySoldiers = platoonSoldiers * 4
-    val battalionSoldiers = coySoldiers * 4
-    val regimentSoldiers = battalionSoldiers * 4
-    val legionSoldiers = regimentSoldiers * 4
-    val greatArmySoldiers = legionSoldiers * 10
+    println()
+    println("Введите ваш бюджет:")
+    val budget = readln().toInt()
 
-    when(name){
-        "Великая армия Республики" -> {
-            soldiers = greatArmySoldiers
-            structure = "10 легионов"
-            head = "Верховный Канцлер"
-        }
-        "Легион" -> {
-            soldiers = legionSoldiers
-            structure = "4 полка"
-            head = "Клон-коммандер"
-        }
-        "Полк" -> {
-            soldiers = regimentSoldiers
-            structure = "4 батальона"
-            head = "Клон-коммандер"
-        }
-        "Батальон" -> {
-            soldiers = battalionSoldiers
-            structure = "4 роты"
-            head = "Клон-коммандер"
-        }
-        "Рота" -> {
-            soldiers = coySoldiers
-            structure = "4 взвода"
-            head = "Клон-капитан"
-        }
-        "Взвод" -> {
-            soldiers = platoonSoldiers
-            structure = "4 отряда"
-            head = "Клон-лейтенант"
-        }
-        "Отряд" -> {
-            soldiers = squadSoldiers
-            structure = "9 солдат"
-            head = "Клон-сержант"
-        }
-        else -> {
+    when (budget) {
+        in 0..100 -> println("Рекомендуем бюджетный вариант отдыха: прогулки по городу, посещение местных рынков.")
+        in 101..500 -> println("Рекомендуем средний вариант отдыха: экскурсию в пригород, посещение культурных достопримечательностей.")
+        in 501..1000 -> println("Рекомендуем премиум-вариант отдыха: эксклюзивную экскурсию, посещение элитных ресторанов.")
+        else -> println("Рекомендуем обратиться в наш отдел для составления индивидуального плана отдыха.")
+    }
 
+
+//    В связи со стремительным ростом населения планет люди начали выращивать растения не только на земле, но и в космосе.
+//    Так, мощности орбитальной гидропоники позволяют обеспечить едой до 300 000 человек в день.
+//    Производственная мощность зависит от количества прибывших на планету гостей за последние 24 часа,
+//    а также от дня недели
+    val guests = readln().toInt()
+    val day = readln()
+    var food = 0
+
+    when {
+        day == "Понедельник" || day == "Пятница" ||
+                day == "Суббота" || day == "Воскресенье" -> {
+            when {
+                guests < 10_000 -> food = 150_000
+                guests in 10_000..50_000 -> food = 200_000
+                guests > 50_000 -> food = 300_000
+            }
+        }
+        day == "Вторник" -> {
+            when {
+                guests < 10_000 -> food = 125_000
+                guests in 10_000..50_000 -> food = 175_000
+                guests > 50_000 -> food = 275_000
+            }
+        }
+        day == "Среда" -> {
+            when {
+                guests < 10_000 -> food = 100_000
+                guests in 10_000..50_000 -> food = 150_000
+                guests > 50_000 -> food = 250_000
+            }
+        }
+        day == "Четверг" -> {
+            when {
+                guests < 10_000 -> food = 70_000
+                guests in 10_000..50_000 -> food = 120_000
+                guests > 50_000 -> food = 220_000
+            }
         }
     }
 
-    println("Количество солдат: $soldiers")
-    println("Состав: $structure")
-    println("Возглавляет: $head")
+    println(food)
 }

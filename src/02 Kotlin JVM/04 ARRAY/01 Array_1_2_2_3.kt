@@ -7,4 +7,19 @@ fun main() {
             println(planets[index] + " и " + planets[index + 1])
         }
     }
+
+
+    val arraySize = readln().toInt()
+
+    val arr = Array<String>(arraySize) {""}
+
+    for (index in arr.indices) {
+        arr[index] = readln()
+    }
+
+    for (index in arr.indices) {
+        if (index + 1 < arr.size) {
+            println(arr[index] + " - " + arr[index + 1])
+        }
+    }
 }

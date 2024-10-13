@@ -1,39 +1,61 @@
 fun main() {
+    //    Армия Республики
+    val name = readln()
 
-    val guests = readln().toInt()
-    val day = readln()
-    var food = 0
+    var soldiers = 0
+    var structure = ""
+    var head = ""
 
-    when {
-        day == "Понедельник" || day == "Пятница" ||
-                day == "Суббота" || day == "Воскресенье" -> {
-            when {
-                guests < 10_000 -> food = 150_000
-                guests in 10_000..50_000 -> food = 200_000
-                guests > 50_000 -> food = 300_000
-            }
+    val squadSoldiers = 9
+    val platoonSoldiers = squadSoldiers * 4
+    val coySoldiers = platoonSoldiers * 4
+    val battalionSoldiers = coySoldiers * 4
+    val regimentSoldiers = battalionSoldiers * 4
+    val legionSoldiers = regimentSoldiers * 4
+    val greatArmySoldiers = legionSoldiers * 10
+
+    when(name){
+        "Великая армия Республики" -> {
+            soldiers = greatArmySoldiers
+            structure = "10 легионов"
+            head = "Верховный Канцлер"
         }
-        day == "Вторник" -> {
-            when {
-                guests < 10_000 -> food = 125_000
-                guests in 10_000..50_000 -> food = 175_000
-                guests > 50_000 -> food = 275_000
-            }
+        "Легион" -> {
+            soldiers = legionSoldiers
+            structure = "4 полка"
+            head = "Клон-коммандер"
         }
-        day == "Среда" -> {
-            when {
-                guests < 10_000 -> food = 100_000
-                guests in 10_000..50_000 -> food = 150_000
-                guests > 50_000 -> food = 250_000
-            }
+        "Полк" -> {
+            soldiers = regimentSoldiers
+            structure = "4 батальона"
+            head = "Клон-коммандер"
         }
-        day == "Четверг" -> {
-            when {
-                guests < 10_000 -> food = 70_000
-                guests in 10_000..50_000 -> food = 120_000
-                guests > 50_000 -> food = 220_000
-            }
+        "Батальон" -> {
+            soldiers = battalionSoldiers
+            structure = "4 роты"
+            head = "Клон-коммандер"
+        }
+        "Рота" -> {
+            soldiers = coySoldiers
+            structure = "4 взвода"
+            head = "Клон-капитан"
+        }
+        "Взвод" -> {
+            soldiers = platoonSoldiers
+            structure = "4 отряда"
+            head = "Клон-лейтенант"
+        }
+        "Отряд" -> {
+            soldiers = squadSoldiers
+            structure = "9 солдат"
+            head = "Клон-сержант"
+        }
+        else -> {
+
         }
     }
-    println(food)
+
+    println("Количество солдат: $soldiers")
+    println("Состав: $structure")
+    println("Возглавляет: $head")
 }
