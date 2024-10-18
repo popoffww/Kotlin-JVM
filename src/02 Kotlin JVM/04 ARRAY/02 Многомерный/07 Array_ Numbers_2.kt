@@ -9,7 +9,6 @@ fun main() {
 //    39561-8881-3221-9552-1
 //    Разность: 3688 37328 13729 17906
 //    Ответ: 17417-668395168
-
     val count = readln().split(": ")[1].toInt()
     val array = Array<Int>(count){0}
 
