@@ -17,8 +17,8 @@ fun main() {
 
     for (i in robotArr.indices) {
         val data = readln().split(";")
-        val time = data[1]
         val robotId = data[0]
+        val time = data[1]
 
         robotArr[i][0] = robotId
         robotArr[i][1] = time
