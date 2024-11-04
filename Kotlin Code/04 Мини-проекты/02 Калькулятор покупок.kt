@@ -1,7 +1,6 @@
 fun main() {
     printMainMenu()
-//  readItemMenu()
-    readItemMenu
+    readItemMenu()
     analyzeOrder()
     payOrder()
     cancelOrder()
@@ -15,16 +14,10 @@ fun printMainMenu() {
     println()
 }
 
-//    fun readItemMenu(): String {
-//        val menu = readln()
-//        return menu
-//    }
-// Convert function readItemMenu to property
-val readItemMenu: String
-    get() {
-        val menu = readln()
-        return menu
-    }
+fun readItemMenu(): String {
+    val menu = readln()
+    return menu
+}
 
 fun analyzeOrder() {
     println("Идет анализ продуктовой корзины")

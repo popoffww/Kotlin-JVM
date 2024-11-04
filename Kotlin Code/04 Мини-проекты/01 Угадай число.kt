@@ -7,7 +7,7 @@ fun main() {
 
     while (true) {
         printMainMenu(isFirstStart)
-        val selectedItemMenu = readItemMenu
+        val selectedItemMenu = readItemMenu()
         when (selectedItemMenu) {
             game -> runGame()
             guide -> showGuide()
